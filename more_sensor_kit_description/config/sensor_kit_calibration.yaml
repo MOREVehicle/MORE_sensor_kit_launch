@@ -1,5 +1,5 @@
 sensor_kit_base_link:
-  velodyne_link: # lidar
+  velodyne_top_base_link: # lidar
     x: 180.0
     y: 0.0
     z: 135.0
