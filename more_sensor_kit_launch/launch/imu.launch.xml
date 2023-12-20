@@ -4,11 +4,14 @@
   <group>
     <push-ros-namespace namespace="imu"/>
 
-  <group>
-    <push-ros-namespace namespace="v-box"/>
-    <node pkg="v_box_imu_driver" name="imu_driver" exec="imu_driver" if="$(var launch_driver)">
-    </node>
-  </group>
+    <group>
+      <push-ros-namespace namespace="tamagawa"/>
+      <node pkg="tamagawa_imu_driver" name="tag_serial_driver" exec="tag_serial_driver" if="$(var launch_driver)">
+        <remap from="imu/data_raw" to="imu_raw"/>
+        <param name="port" value="/dev/imu"/>
+        <param name="imu_frame_id" value="tamagawa/imu_link"/>
+      </node>
+    </group>
 
     <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
     <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/more_sensor_kit/imu_corrector.param.yaml"/>
