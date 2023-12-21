@@ -36,7 +36,7 @@
 
     <!-- imu -->
     <xacro:imu_macro
-      name="imu"
+      name="vbox_imu03"
       parent="sensor_kit_base_link"
       namespace=""
       x="${calibration['sensor_kit_base_link']['imu_link']['x']}"

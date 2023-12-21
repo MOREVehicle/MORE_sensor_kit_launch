@@ -6,13 +6,13 @@
 
   <group>
     <push-ros-namespace namespace="v_box"/>
-    <node pkg="vbox_imu_driver" name="vbox_imu_driver" exec="can_driver" if="$(var launch_driver)">
+    <node pkg="vbox_imu03_driver" name="vbox_imu03_driver" exec="can_driver" if="$(var launch_driver)">
     <arg name="input_topic" value="can_topic"/>
     <arg name="output_topic" value="imu"/>
     </node>
   </group>
 
-    <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
+    <arg name="imu_raw_name" default="v_box_imu03/imu_raw"/>
     <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/more_sensor_kit/imu_corrector.param.yaml"/>
     <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
       <arg name="input_topic" value="$(var imu_raw_name)"/>
