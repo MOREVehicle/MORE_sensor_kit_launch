@@ -6,7 +6,9 @@
 
   <group>
     <push-ros-namespace namespace="v_box"/>
-    <node pkg="vbox_imu_driver" name="can_driver" exec="can_driver" if="$(var launch_driver)">
+    <node pkg="vbox_imu_driver" name="vbox_imu_driver" exec="can_driver" if="$(var launch_driver)">
+    <arg name="input_topic" value="can_topic"/>
+    <arg name="output_topic" value="imu"/>
     </node>
   </group>
 
